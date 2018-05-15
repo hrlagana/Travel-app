@@ -1,0 +1,13 @@
+buildscript {
+    repositories {
+        google() // Gradle 4.0+
+        jcenter()
+        maven { url "https://maven.google.com" } // Gradle < 4.0
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+    }
+}
+
+
