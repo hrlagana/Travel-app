@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 505:
+/***/ 504:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38,7 +38,7 @@ var LoginPageModule = (function () {
 
 /***/ }),
 
-/***/ 507:
+/***/ 509:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71,10 +71,10 @@ var EmailValidator = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__validators_email__ = __webpack_require__(507);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__validators_email__ = __webpack_require__(509);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_google_plus__ = __webpack_require__(308);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -188,7 +188,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Christos\Desktop\trvlpl\src\pages\login\login.html"*/'<form [formGroup]="loginForm" (submit)="loginUser()" novalidate>\n  <ion-item>\n    <ion-label stacked>Email</ion-label>\n    <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls.email.valid && blur">\n    </ion-input>\n  </ion-item>\n  <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.touched">\n    <p>Please enter a valid email address.</p>\n  </ion-item>\n  <ion-item>\n    <ion-label stacked>Password</ion-label>\n    <ion-input formControlName="password" type="password" placeholder="Your password" [class.invalid]="!loginForm.controls.password.valid && blur">\n    </ion-input>\n  </ion-item>\n  <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.touched">\n    <p>Your password needs to be more than 6 characters.</p>\n  </ion-item>\n  <button ion-button block type="submit" [disabled]="!loginForm.valid">\n    Log In!\n  </button>\n</form>\n\n<button ion-button block (click)="googleLogin()" *ngIf="!userProfile">\n  <ion-icon name="logo-googleplus"> Google Login!</ion-icon>\n</button>\n\n<ion-card *ngIf="userProfile">\n  <ion-card-header>\n    {{ userProfile.email }}\n  </ion-card-header>\n  <ion-card-content>\n  </ion-card-content>\n</ion-card>\n\n<button ion-button block clear (click)="goToSignup()">\n  Don\'t have an account yet? Sign up.\n</button>\n\n<button ion-button block clear (click)="goToResetPassword()">\n  Forgot password?\n</button>\n'/*ion-inline-end:"C:\Users\Christos\Desktop\trvlpl\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\login\login.html"*/'<form [formGroup]="loginForm" (submit)="loginUser()" novalidate>\n  <ion-item>\n    <ion-label stacked>Email</ion-label>\n    <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls.email.valid && blur">\n    </ion-input>\n  </ion-item>\n  <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.touched">\n    <p>Please enter a valid email address.</p>\n  </ion-item>\n  <ion-item>\n    <ion-label stacked>Password</ion-label>\n    <ion-input formControlName="password" type="password" placeholder="Your password" [class.invalid]="!loginForm.controls.password.valid && blur">\n    </ion-input>\n  </ion-item>\n  <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.touched">\n    <p>Your password needs to be more than 6 characters.</p>\n  </ion-item>\n  <button ion-button block type="submit" [disabled]="!loginForm.valid">\n    Log In!\n  </button>\n</form>\n\n<button ion-button block (click)="googleLogin()" *ngIf="!userProfile">\n  <ion-icon name="logo-googleplus"> Google Login!</ion-icon>\n</button>\n\n<ion-card *ngIf="userProfile">\n  <ion-card-header>\n    {{ userProfile.email }}\n  </ion-card-header>\n  <ion-card-content>\n  </ion-card-content>\n</ion-card>\n\n<button ion-button block clear (click)="goToSignup()">\n  Don\'t have an account yet? Sign up.\n</button>\n\n<button ion-button block clear (click)="goToResetPassword()">\n  Forgot password?\n</button>\n'/*ion-inline-end:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],

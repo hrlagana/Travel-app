@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ProfileProvider } from '../../providers/profile/profile';
+import { QuestionProvider } from '../../providers/question/question';
 
 import firebase from 'firebase';
 
@@ -27,7 +28,11 @@ export class HomePage {
     this.countryRef.on('value', countryList => {
       let countries = [];
       countryList.forEach(country => {
-        countries.push(country.val());
+        countries.push({
+          id: country.val().key,
+          name: country.val().name,
+          code: country.val().code
+          });
         return false;
       });
       this.countryList = countries;
@@ -60,13 +65,13 @@ export class HomePage {
   }
 
 
-  initializeItems(): void {
+  initializeCountries(): void {
     this.countryList = this.loadedCountryList;
   }
 
   getCountries(searchbar) {
     // Reset items back to all of the items
-    this.initializeItems();
+    this.initializeCountries();
     // set q to the value of the searchbar
     var q = searchbar.srcElement.value;
     // if the value is an empty string don't filter the items
@@ -92,4 +97,8 @@ export class HomePage {
     console.log('Selected country', Selcountry);
   }
  
+  CreateQuestion(){
+    this.navCtrl.push('QuestionCreatePage');
+  }
+
 }

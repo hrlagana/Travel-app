@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { EventProvider } from '../providers/event/event';
 import { ProfileProvider } from '../providers/profile/profile';
+import { QuestionProvider } from '../providers/question/question';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -52,7 +53,8 @@ export const firebaseConfig = {
     EventProvider,
     ProfileProvider,
     Camera,
-    GooglePlus
+    GooglePlus,
+    QuestionProvider
   ]
 })
 export class AppModule { }
