@@ -101,4 +101,8 @@ export class HomePage {
     this.navCtrl.push('QuestionCreatePage');
   }
 
+  goToQuestionList(): void {
+    this.navCtrl.push('QuestionListPage');
+  }
+
 }

@@ -7,7 +7,7 @@ import { EmailValidator } from '../../validators/email';
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
 
-import firebase from 'firebase';
+/*import firebase from 'firebase';*/
 /*import { FormControl } from '@angular/forms';*/
 
 @IonicPage()

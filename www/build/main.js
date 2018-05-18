@@ -1,4 +1,4 @@
-webpackJsonp([8],{
+webpackJsonp([9],{
 
 /***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -204,14 +204,16 @@ var HomePage = (function () {
     HomePage.prototype.CreateQuestion = function () {
         this.navCtrl.push('QuestionCreatePage');
     };
+    HomePage.prototype.goToQuestionList = function () {
+        this.navCtrl.push('QuestionListPage');
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-home",template:/*ion-inline-start:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only *ngIf="userProfile?.firstName" (click)="goToProfile()">\n        <ion-icon name="person">Profile</ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="page-home">\n  <h3 col-6 *ngIf="userProfile?.firstName || userProfile?.lastName;else guest">\n    Welcome, {{userProfile?.firstName}} {{userProfile?.lastName}}!\n  </h3>\n  <ng-template #guest>\n    <h3> Welcome guest!</h3>\n  </ng-template>\n  <button ion-button block color="primary" (click)="goToCreate()">\n    Create a new Event\n  </button>\n  <button ion-button block color="primary" (click)="goToList()">\n    See your events\n  </button>\n\n  <button ion-button block color="primary" (click)="CreateQuestion()">\n    Ask a new Question\n  </button>\n\n\n  <ion-label stacked>In which country are you going to travel ?</ion-label>\n  <ion-searchbar [(ngModel)]="searchValue" (ionInput)="getCountries($event)"></ion-searchbar>\n  <ion-list *ngIf="searchValue.length >= 1">\n    <ion-item  *ngFor="let country of countryList">\n      <h2> {{ country.name }} </h2>\n      <h3> Code:\n        <strong>{{ country.code }}</strong>\n      </h3>\n      <ion-item (click)="updateCountry(country.name)"> <h4>Lets travel!</h4></ion-item>\n    </ion-item>\n    <ion-item *ngIf="userProfile?.country">\n      <h3>Your destination is {{userProfile?.country}}!</h3>\n    </ion-item>\n  </ion-list>\n\n  <ion-label stacked>Top3 Destinations</ion-label>\n  <ion-list>\n\n  </ion-list>\n  <ion-grid>\n    <ion-row>\n      <ion-col col6>\n        <h3>Dest 1</h3>\n      </ion-col>\n      <ion-col col6>\n        <h3>Dest 2</h3>\n      </ion-col>\n      <ion-col col6>\n        <h3>Dest 3</h3>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <button ion-button block (click)="logOut()">Logout</button>\n</ion-content>'/*ion-inline-end:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\home\home.html"*/
+            selector: "page-home",template:/*ion-inline-start:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only *ngIf="userProfile?.firstName" (click)="goToProfile()">\n        <ion-icon name="person">Profile</ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="page-home">\n  <h3 col-6 *ngIf="userProfile?.firstName || userProfile?.lastName;else guest">\n    Welcome, {{userProfile?.firstName}} {{userProfile?.lastName}}!\n  </h3>\n  <ng-template #guest>\n    <h3> Welcome guest!</h3>\n  </ng-template>\n  <button ion-button block color="primary" (click)="goToCreate()">\n    Create a new Event\n  </button>\n  <button ion-button block color="primary" (click)="goToList()">\n    See your events\n  </button>\n\n  <button ion-button block color="primary" (click)="CreateQuestion()">\n    Ask a new Question\n  </button>\n  <button ion-button block color="primary" (click)="goToQuestionList()">\n    Question List\n  </button>\n\n\n\n  <ion-label stacked>In which country are you going to travel ?</ion-label>\n  <ion-searchbar [(ngModel)]="searchValue" (ionInput)="getCountries($event)"></ion-searchbar>\n  <ion-list *ngIf="searchValue.length >= 1">\n    <ion-item  *ngFor="let country of countryList">\n      <h2> {{ country.name }} </h2>\n      <h3> Code:\n        <strong>{{ country.code }}</strong>\n      </h3>\n      <ion-item (click)="updateCountry(country.name)"> <h4>Lets travel!</h4></ion-item>\n    </ion-item>\n    <ion-item *ngIf="userProfile?.country">\n      <h3>Your destination is {{userProfile?.country}}!</h3>\n    </ion-item>\n  </ion-list>\n\n  <ion-label stacked>Top3 Destinations</ion-label>\n  <ion-list>\n\n  </ion-list>\n  <ion-grid>\n    <ion-row>\n      <ion-col col6>\n        <h3>Dest 1</h3>\n      </ion-col>\n      <ion-col col6>\n        <h3>Dest 2</h3>\n      </ion-col>\n      <ion-col col6>\n        <h3>Dest 3</h3>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <button ion-button block (click)="logOut()">Logout</button>\n</ion-content>'/*ion-inline-end:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -328,15 +330,15 @@ webpackEmptyAsyncContext.id = 163;
 var map = {
 	"../pages/event-create/event-create.module": [
 		501,
-		7
+		8
 	],
 	"../pages/event-detail/event-detail.module": [
 		502,
-		6
+		7
 	],
 	"../pages/event-list/event-list.module": [
 		503,
-		5
+		6
 	],
 	"../pages/login/login.module": [
 		504,
@@ -344,18 +346,22 @@ var map = {
 	],
 	"../pages/profile/profile.module": [
 		505,
-		4
+		5
 	],
 	"../pages/question-create/question-create.module": [
 		506,
+		4
+	],
+	"../pages/question-list/question-list.module": [
+		507,
 		3
 	],
 	"../pages/reset-password/reset-password.module": [
-		507,
+		508,
 		1
 	],
 	"../pages/signup/signup.module": [
-		508,
+		509,
 		0
 	]
 };
@@ -449,7 +455,7 @@ var EventProvider = (function () {
 
 /***/ }),
 
-/***/ 309:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -529,12 +535,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_auth_auth__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_event_event__ = __webpack_require__(307);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_profile_profile__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_question_question__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_question_question__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2_auth__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angularfire2_database__ = __webpack_require__(475);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_camera__ = __webpack_require__(500);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_google_plus__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_google_plus__ = __webpack_require__(309);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -584,6 +590,7 @@ var AppModule = (function () {
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/question-create/question-create.module#QuestionCreatePageModule', name: 'QuestionCreatePage', segment: 'question-create', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/question-list/question-list.module#EventListPageModule', name: 'QuestionListPage', segment: 'question-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
                     ]
