@@ -38,12 +38,14 @@
   <ion-label stacked>In which country are you going to travel ?</ion-label>
   <ion-searchbar [(ngModel)]="searchValue" (ionInput)="getCountries($event)"></ion-searchbar>
   <ion-list *ngIf="searchValue.length >= 1">
-    <ion-item  *ngFor="let country of countryList">
+    <ion-item *ngFor="let country of countryList">
       <h2> {{ country.name }} </h2>
       <h3> Code:
         <strong>{{ country.code }}</strong>
       </h3>
-      <ion-item (click)="updateCountry(country.name)"> <h4>Lets travel!</h4></ion-item>
+      <ion-item (click)="updateCountry(country.name)">
+        <h4>Lets travel!</h4>
+      </ion-item>
     </ion-item>
     <ion-item *ngIf="userProfile?.country">
       <h3>Your destination is {{userProfile?.country}}!</h3>

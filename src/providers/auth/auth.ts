@@ -18,25 +18,26 @@ export class AuthProvider {
     if (!(<any>window).cordova) {
       return firebase.auth().signInWithPopup(provider);
     } else {
-        return firebase.auth().signInWithRedirect(provider).then( () => {
-          return firebase.auth().getRedirectResult().then( result => {
-            // This gives you a Google Access Token.
-            // You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            console.log(token, user);
-          }).catch(function(error) {        
-            console.log(error.message);
-          });
-        }).catch(function(error) {        
+      return firebase.auth().signInWithRedirect(provider).then(() => {
+        return firebase.auth().getRedirectResult().then(result => {
+          // This gives you a Google Access Token.
+          // You can use it to access the Google API.
+          var token = result.credential.accessToken;
+          // The signed-in user info.
+          var user = result.user;
+          console.log(token, user);
+        }).catch(function (error) {
           console.log(error.message);
         });
-      }
+      }).catch(function (error) {
+        console.log(error.message);
+      });
+    }
   }
-  
 
-  signupUser(firstName: string, lastName: string, email: string, password: string, gender: string, DOB: string,country: string): Promise<any> {
+
+  signupUser(firstName: string, lastName: string, email: string, password: string, gender: string, DOB: string, country: string): Promise<any> {
+
     return firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -61,7 +62,7 @@ export class AuthProvider {
           .database()
           .ref(`/userProfile/${newUser.uid}/DOB`)
           .set(DOB);
-          firebase
+        firebase
           .database()
           .ref(`/userProfile/${newUser.uid}/country`)
           .set(country);

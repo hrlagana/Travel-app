@@ -4,9 +4,10 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
+<!--
     <ion-item>
-        <ion-label stacked>Question Name</ion-label>
-        <ion-input [(ngModel)]="questionName" type="text" placeholder="What's your question?">
+        <ion-label floating>What's your question?</ion-label>
+        <ion-input required [(ngModel)]="questionName" type="text">
         </ion-input>
     </ion-item>
     <ion-item>
@@ -16,7 +17,15 @@
     <button ion-button block (click)="createQuestion(questionName, questionDate)">
         Submit your Question
     </button>
+-->
 
 
+    <form [formGroup]="questionForm">
+        <ion-item>
+            <ion-label floating>What's your question?</ion-label>
+            <ion-input formControlName="questionName"></ion-input>
+        </ion-item>
+        <button ion-button [disabled]="!questionForm.valid" block (click)="createQuestion(questionName, questionDate)">Submit</button>
+    </form>
 
 </ion-content>

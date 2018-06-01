@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-card-header>
+            {{currentQuestion?.name}} by User: {{currentQuestion?.userID}}
+        </ion-card-header>
+        <ion-card-content>
+            <p>Date: {{currentQuestion?.date}}</p>
+            <h2>{{question?.name}}</h2>
+
+            <button ion-button (click)="likeQuestion()" icon-left clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>{{currentQuestion?.qlikes}} Likes</div>
+            </button>
+            <button ion-button (click)="dislikeQuestion()" icon-left clear small>
+                <ion-icon name="thumbs-down"></ion-icon>
+                <div>{{currentQuestion?.qdislikes}} Dislikes</div>
+            </button>
+            <button ion-button icon-left clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>{{currentQuestion?.answers}} Answers</div>
+            </button>
+
+        </ion-card-content>
+    </ion-card>
+
+
+
+
+</ion-content>

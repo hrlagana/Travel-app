@@ -20,7 +20,7 @@ export class SignupPage {
   public loading: Loading;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public authProvider: AuthProvider, formBuilder: FormBuilder) {
-    
+
 
     this.signupForm = formBuilder.group({
       "firstName": [
@@ -41,7 +41,7 @@ export class SignupPage {
       "DOB": [
         '', Validators.required
       ],
-      "country":[
+      "country": [
         '', Validators.required
       ]
     });
@@ -86,5 +86,5 @@ export class SignupPage {
       this.loading.present();
     }
   }
-  
+
 }
