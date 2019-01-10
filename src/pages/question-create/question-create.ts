@@ -6,12 +6,6 @@ import { User, AuthCredential } from '@firebase/auth-types';
 
 import firebase from 'firebase';
 
-/**
- * Generated class for the EventCreatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -20,7 +14,7 @@ import firebase from 'firebase';
 })
 export class QuestionCreatePage {
 
-    questionDate: String = new Date().toISOString();
+    questionDate: String = new Date().toString();
     questionForm: FormGroup;
 
     currentUser: User;
@@ -39,16 +33,16 @@ export class QuestionCreatePage {
         console.log('ionViewDidLoad QuestionCreatePage');
     }
 
-    createQuestion(questionName: string, questionDate: string, uid: string, qlikes: number, qdislikes: number, answers: number
+    createQuestion(questionName: string, questionDate: string, uid: string, umail: string, qlikes: number, qdislikes: number, answers: number
     ): void {
         var qName: string = this.questionForm.value.questionName;
         uid = firebase.auth().currentUser.uid;
+        umail = firebase.auth().currentUser.email;
         var qlikes: number = 0;
         var qdislikes: number = 0;
         var answers: number = 0;
-        /*console.log(qName);*/
         this.questionProvider
-            .createQuestion(qName, questionDate, uid, qlikes, qdislikes, answers)
+            .createQuestion(qName, questionDate, uid, umail, qlikes, qdislikes, answers)
             .then(newQuestion => {
                 this.navCtrl.pop();
             });

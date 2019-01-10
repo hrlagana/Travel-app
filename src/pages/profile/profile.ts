@@ -117,34 +117,13 @@ export class ProfilePage {
   }
 
   updateInterests(interestList): void {
-    /*let alert: Alert = this.alertCtrl.create({
-      inputs: [
-        {
-          name: 'newInterest',
-          placeholder: "Your interest",
-          value: this.userProfile.interestList
-        }
-      ],
-      buttons: [
-        { text: 'Cancel' },
-        {
-          text: 'Save',
-          handler: data => {
-            this.profileProvider.updateInterests(
-              data.newInterest
-            );
-          }
-        }
-      ]
-    });
-    alert.present();*/
     
     this.userProfile.interestList = interestList;
     this.profileProvider.updateInterests(interestList);
     console.log('Selected', interestList);
 
   }
-
+/*
   updateGender(gender): void {
     let alert: Alert = this.alertCtrl.create({
       inputs: [
@@ -168,12 +147,11 @@ export class ProfilePage {
     });
     alert.present();
   }
-
+*/
 
   genderUpdate(value: any): void {
     console.log('Selected gender', value);
 
-   
     this.userProfile.gender = value;
   }
 

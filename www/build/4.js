@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 507:
+/***/ 508:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuestionDetailPageModule", function() { return QuestionDetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventListPageModule", function() { return EventListPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__question_detail__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__question_list__ = __webpack_require__(520);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var QuestionDetailPageModule = (function () {
-    function QuestionDetailPageModule() {
+var EventListPageModule = (function () {
+    function EventListPageModule() {
     }
-    QuestionDetailPageModule = __decorate([
+    EventListPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__question_detail__["a" /* QuestionDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_2__question_list__["a" /* QuestionListPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__question_detail__["a" /* QuestionDetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__question_list__["a" /* QuestionListPage */]),
             ],
         })
-    ], QuestionDetailPageModule);
-    return QuestionDetailPageModule;
+    ], EventListPageModule);
+    return EventListPageModule;
 }());
 
-//# sourceMappingURL=question-detail.module.js.map
+//# sourceMappingURL=question-list.module.js.map
 
 /***/ }),
 
-/***/ 518:
+/***/ 520:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionDetailPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_question_question__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_question_question__ = __webpack_require__(307);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,45 +58,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the EventDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var QuestionDetailPage = (function () {
-    function QuestionDetailPage(navCtrl, navParams, QuestionProvider) {
+var QuestionListPage = (function () {
+    function QuestionListPage(navCtrl, questionProvider) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.QuestionProvider = QuestionProvider;
-        this.currentQuestion = {};
+        this.questionProvider = questionProvider;
     }
-    QuestionDetailPage.prototype.ionViewDidLoad = function () {
+    QuestionListPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        this.QuestionProvider
-            .getQuestionDetail(this.navParams.get("questionId"))
-            .on("value", function (QuestionSnapshot) {
-            _this.currentQuestion = QuestionSnapshot.val();
-            _this.currentQuestion.id = QuestionSnapshot.key;
+        this.questionProvider.getQuestionList().on("value", function (questionListSnapshot) {
+            _this.questionList = [];
+            questionListSnapshot.forEach(function (snap) {
+                _this.questionList.push({
+                    id: snap.key,
+                    name: snap.val().name,
+                    date: snap.val().date
+                });
+                return false;
+            });
         });
     };
-    QuestionDetailPage.prototype.likeQuestion = function (questionId) {
-        this.QuestionProvider.likeQuestion(this.currentQuestion.id);
+    QuestionListPage.prototype.goToQuestionDetail = function (questionId) {
+        this.navCtrl.push('QuestionDetailPage', { questionId: questionId });
     };
-    QuestionDetailPage.prototype.dislikeQuestion = function (questionId) {
-        this.QuestionProvider.dislikeQuestion(this.currentQuestion.id);
-    };
-    QuestionDetailPage = __decorate([
+    QuestionListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-question-detail',template:/*ion-inline-start:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\question-detail\question-detail.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title></ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n    <ion-card>\n\n        <ion-card-header>\n\n            {{currentQuestion?.name}} by User: {{currentQuestion?.userID}}\n\n        </ion-card-header>\n\n        <ion-card-content>\n\n            <p>Date: {{currentQuestion?.date}}</p>\n\n            <h2>{{question?.name}}</h2>\n\n\n\n            <button ion-button (click)="likeQuestion()" icon-left clear small>\n\n                <ion-icon name="thumbs-up"></ion-icon>\n\n                <div>{{currentQuestion?.qlikes}} Likes</div>\n\n            </button>\n\n            <button ion-button (click)="dislikeQuestion()" icon-left clear small>\n\n                <ion-icon name="thumbs-down"></ion-icon>\n\n                <div>{{currentQuestion?.qdislikes}} Dislikes</div>\n\n            </button>\n\n            <button ion-button icon-left clear small>\n\n                <ion-icon name="text"></ion-icon>\n\n                <div>{{currentQuestion?.answers}} Answers</div>\n\n            </button>\n\n\n\n        </ion-card-content>\n\n    </ion-card>\n\n\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\question-detail\question-detail.html"*/,
+            selector: "page-question-list",template:/*ion-inline-start:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\question-list\question-list.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Question List</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n    <ion-list>\n\n        <ion-item *ngFor="let question of questionList" (click)="goToQuestionDetail(question.id)">\n\n            <p>Date: {{question?.date}}</p>\n\n            <h2>{{question?.name}}</h2>\n\n        </ion-item>\n\n    </ion-list>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\question-list\question-list.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_question_question__["a" /* QuestionProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_question_question__["a" /* QuestionProvider */]) === "function" && _c || Object])
-    ], QuestionDetailPage);
-    return QuestionDetailPage;
-    var _a, _b, _c;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_question_question__["a" /* QuestionProvider */]])
+    ], QuestionListPage);
+    return QuestionListPage;
 }());
 
-//# sourceMappingURL=question-detail.js.map
+//# sourceMappingURL=question-list.js.map
 
 /***/ })
 

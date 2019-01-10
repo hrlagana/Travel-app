@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>User Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-icon name="contact"> Name </ion-icon>
+          </ion-col>
+          <ion-col col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">
+            {{userProfile?.firstName}} {{userProfile?.lastName}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-icon name="calendar"> Date of Birth </ion-icon>
+          </ion-col>
+          <ion-col col-6>
+            
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-icon name="contacts"> Gender </ion-icon>
+          </ion-col>
+          <ion-col col-6 >
+            Gender
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-icon name="bicycle"> Interests </ion-icon>
+          </ion-col>
+          <ion-col>
+           Interests
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>

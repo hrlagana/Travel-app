@@ -97,7 +97,7 @@
             "cwd": "${workspaceRoot}",
             "devServerAddress": "localhost",
             "sourceMaps": true,
-            "ionicLiveReload": true
+            "ionicLiveReload": true,"devServerTimeout" : 420000
         },
         {
             "name": "Simulate Android in browser",

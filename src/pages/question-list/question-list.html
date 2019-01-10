@@ -8,7 +8,6 @@
         <ion-item *ngFor="let question of questionList" (click)="goToQuestionDetail(question.id)">
             <p>Date: {{question?.date}}</p>
             <h2>{{question?.name}}</h2>
-
         </ion-item>
     </ion-list>
 </ion-content>

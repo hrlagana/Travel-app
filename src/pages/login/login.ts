@@ -101,6 +101,7 @@ export class LoginPage {
       firebase.auth().signInWithCredential(googleCredential)
         .then(response => {
           console.log("Firebase success: " + JSON.stringify(response));
+          /*###*/this.userProfile = response; /*###*/
           this.loading.dismiss().then(() => {
             this.navCtrl.setRoot(HomePage);
           });

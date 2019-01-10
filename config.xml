@@ -92,5 +92,5 @@
         <variable name="REVERSED_CLIENT_ID" value="608818035720-3nrc4058j3arghfbegkgeqcc8m9vqp2k.apps.googleusercontent.com" />
     </plugin>
     <engine name="ios" spec="^4.5.4" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>

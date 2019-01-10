@@ -21,7 +21,7 @@ export class HomePage {
 
   public searchValue: string = "";
   public country: any = {};
-  
+
 
   constructor(public navCtrl: NavController, public authProvider: AuthProvider, public profileProvider: ProfileProvider) {
     this.countryRef = firebase.database().ref('/countries');
@@ -29,10 +29,9 @@ export class HomePage {
       let countries = [];
       countryList.forEach(country => {
         countries.push({
-          id: country.val().key,
           name: country.val().name,
           code: country.val().code
-          });
+        });
         return false;
       });
       this.countryList = countries;
@@ -89,15 +88,15 @@ export class HomePage {
     console.log(q, this.countryList.length);
   }
 
-  updateCountry(Selcountry: string): void{
-    
+  updateCountry(Selcountry: string): void {
+
     this.userProfile.country = Selcountry;
     this.profileProvider.updateCountry(Selcountry);
     
     console.log('Selected country', Selcountry);
   }
- 
-  CreateQuestion(){
+
+  CreateQuestion() {
     this.navCtrl.push('QuestionCreatePage');
   }
 

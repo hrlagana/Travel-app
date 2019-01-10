@@ -1,4 +1,4 @@
-webpackJsonp([10],{
+webpackJsonp([11],{
 
 /***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -143,7 +143,6 @@ var HomePage = (function () {
             var countries = [];
             countryList.forEach(function (country) {
                 countries.push({
-                    id: country.val().key,
                     name: country.val().name,
                     code: country.val().code
                 });
@@ -209,7 +208,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-home",template:/*ion-inline-start:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only *ngIf="userProfile?.firstName" (click)="goToProfile()">\n        <ion-icon name="person">Profile</ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="page-home">\n  <h3 col-6 *ngIf="userProfile?.firstName || userProfile?.lastName;else guest">\n    Welcome, {{userProfile?.firstName}} {{userProfile?.lastName}}!\n  </h3>\n  <ng-template #guest>\n    <h3> Welcome guest!</h3>\n  </ng-template>\n  <button ion-button block color="primary" (click)="goToCreate()">\n    Create a new Event\n  </button>\n  <button ion-button block color="primary" (click)="goToList()">\n    See your events\n  </button>\n\n  <button ion-button block color="primary" (click)="CreateQuestion()">\n    Ask a new Question\n  </button>\n  <button ion-button block color="primary" (click)="goToQuestionList()">\n    Question List\n  </button>\n\n\n\n  <ion-label stacked>In which country are you going to travel ?</ion-label>\n  <ion-searchbar [(ngModel)]="searchValue" (ionInput)="getCountries($event)"></ion-searchbar>\n  <ion-list *ngIf="searchValue.length >= 1">\n    <ion-item *ngFor="let country of countryList">\n      <h2> {{ country.name }} </h2>\n      <h3> Code:\n        <strong>{{ country.code }}</strong>\n      </h3>\n      <ion-item (click)="updateCountry(country.name)">\n        <h4>Lets travel!</h4>\n      </ion-item>\n    </ion-item>\n    <ion-item *ngIf="userProfile?.country">\n      <h3>Your destination is {{userProfile?.country}}!</h3>\n    </ion-item>\n  </ion-list>\n\n  <ion-label stacked>Top3 Destinations</ion-label>\n  <ion-list>\n\n  </ion-list>\n  <ion-grid>\n    <ion-row>\n      <ion-col col6>\n        <h3>Dest 1</h3>\n      </ion-col>\n      <ion-col col6>\n        <h3>Dest 2</h3>\n      </ion-col>\n      <ion-col col6>\n        <h3>Dest 3</h3>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <button ion-button block (click)="logOut()">Logout</button>\n</ion-content>'/*ion-inline-end:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\home\home.html"*/
+            selector: "page-home",template:/*ion-inline-start:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Home\n    </ion-title>\n\n    <ion-buttons end>\n      <button ion-button icon-only (click)="goToProfile()">\n        <ion-icon name="person">Profile</ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="page-home">\n  <h3 col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">\n    Welcome, {{userProfile?.firstName}} {{userProfile?.lastName}}!\n  </h3>\n  <h3 col-6 *ngIf= "!userProfile?.displayName && !userProfile?.firstName">\n    <h3>Welcome guest!</h3>\n  </h3>\n  <h3 col-6 *ngIf= "userProfile?.displayName ">\n    <h3>Welcome {{userProfile?.displayName}}</h3>\n  </h3>\n  \n  <button ion-button block color="primary" (click)="goToCreate()">\n    Create a new Event\n  </button>\n  <button ion-button block color="primary" (click)="goToList()">\n    See your events\n  </button>\n\n  <button ion-button block color="primary" (click)="CreateQuestion()">\n    Ask a new Question\n  </button>\n  <button ion-button block color="primary" (click)="goToQuestionList()">\n    Question List\n  </button>\n\n\n\n  <ion-label stacked>In which country are you going to travel ?</ion-label>\n  <ion-searchbar [(ngModel)]="searchValue" (ionInput)="getCountries($event)"></ion-searchbar>\n  <ion-list *ngIf="searchValue.length >= 1">\n    <ion-item *ngFor="let country of countryList">\n      <h2> {{ country.name }} </h2>\n      <h3> Code:\n        <strong>{{ country.code }}</strong>\n      </h3>\n      <ion-item (click)="updateCountry(country.name)">\n        <h4>Lets travel!</h4>\n      </ion-item>\n    </ion-item>\n    <ion-item *ngIf="userProfile?.country">\n      <h3>Your destination is {{userProfile?.country}}!</h3>\n    </ion-item>\n  </ion-list>\n\n  <ion-label stacked>Top3 Destinations</ion-label>\n  <ion-list>\n\n  </ion-list>\n  <ion-grid>\n    <ion-row>\n      <ion-col col6>\n        <h3>Dest 1</h3>\n      </ion-col>\n      <ion-col col6>\n        <h3>Dest 2</h3>\n      </ion-col>\n      <ion-col col6>\n        <h3>Dest 3</h3>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <button ion-button block (click)="logOut()">Logout</button>\n</ion-content>'/*ion-inline-end:"C:\Users\Christos\Documents\GitHub\Travel app\Travel-app\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]])
     ], HomePage);
@@ -330,43 +329,47 @@ webpackEmptyAsyncContext.id = 163;
 var map = {
 	"../pages/event-create/event-create.module": [
 		501,
-		9
+		10
 	],
 	"../pages/event-detail/event-detail.module": [
 		502,
-		8
+		9
 	],
 	"../pages/event-list/event-list.module": [
 		503,
-		7
+		8
 	],
 	"../pages/login/login.module": [
 		504,
 		2
 	],
 	"../pages/profile/profile.module": [
+		506,
+		7
+	],
+	"../pages/question-create/question-create.module": [
 		505,
 		6
 	],
-	"../pages/question-create/question-create.module": [
-		506,
-		5
-	],
 	"../pages/question-detail/question-detail.module": [
 		507,
-		4
+		5
 	],
 	"../pages/question-list/question-list.module": [
 		508,
-		3
+		4
 	],
 	"../pages/reset-password/reset-password.module": [
 		509,
 		1
 	],
 	"../pages/signup/signup.module": [
-		510,
+		511,
 		0
+	],
+	"../pages/userprof/userprof.module": [
+		510,
+		3
 	]
 };
 function webpackAsyncContext(req) {
@@ -386,6 +389,98 @@ module.exports = webpackAsyncContext;
 /***/ }),
 
 /***/ 307:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var QuestionProvider = (function () {
+    function QuestionProvider() {
+        var _this = this;
+        /*countryRef.orderByKey().equalTo( CountryID )*/
+        __WEBPACK_IMPORTED_MODULE_1_firebase___default.a.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                _this.QuestionListRef = __WEBPACK_IMPORTED_MODULE_1_firebase___default.a
+                    .database()
+                    .ref("/countries/questionList");
+            }
+        });
+    }
+    QuestionProvider.prototype.createQuestion = function (questionName, questionDate, uid, umail, qlikes, qdislikes, answers) {
+        return this.QuestionListRef.push({
+            name: questionName,
+            date: questionDate,
+            userID: uid,
+            email: umail,
+            qlikes: qlikes,
+            qdislikes: qdislikes,
+            answers: answers
+        });
+    };
+    QuestionProvider.prototype.getQuestionList = function () {
+        return this.QuestionListRef;
+    };
+    QuestionProvider.prototype.getQuestionDetail = function (questionId) {
+        return this.QuestionListRef.child(questionId);
+    };
+    QuestionProvider.prototype.getQuestionUser = function (questionId) {
+        return this.QuestionListRef.child(questionId).child('userID');
+    };
+    QuestionProvider.prototype.likeQuestion = function (questionId) {
+        var dbRef = this.QuestionListRef.child(questionId).child('qlikes');
+        var dbRef2 = this.QuestionListRef.child(questionId).child('qdislikes');
+        dbRef.transaction(function (qlikes) {
+            return (qlikes || 0) + 1;
+        });
+        dbRef2.transaction(function (qdislikes) {
+            if (qdislikes == 0) {
+                return qdislikes;
+            }
+            else {
+                return (qdislikes || 0) - 1;
+            }
+        });
+    };
+    QuestionProvider.prototype.dislikeQuestion = function (questionId) {
+        var dbRef = this.QuestionListRef.child(questionId).child('qdislikes');
+        var dbRef2 = this.QuestionListRef.child(questionId).child('qlikes');
+        dbRef.transaction(function (qdislikes) {
+            return (qdislikes || 0) + 1;
+        });
+        dbRef2.transaction(function (qlikes) {
+            if (qlikes == 0) {
+                return qlikes;
+            }
+            else {
+                return (qlikes || 0) - 1;
+            }
+        });
+    };
+    QuestionProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], QuestionProvider);
+    return QuestionProvider;
+}());
+
+//# sourceMappingURL=question.js.map
+
+/***/ }),
+
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -459,75 +554,6 @@ var EventProvider = (function () {
 
 /***/ }),
 
-/***/ 308:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var QuestionProvider = (function () {
-    function QuestionProvider() {
-        var _this = this;
-        __WEBPACK_IMPORTED_MODULE_1_firebase___default.a.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                _this.QuestionListRef = __WEBPACK_IMPORTED_MODULE_1_firebase___default.a
-                    .database()
-                    .ref("/countries/questionList");
-            }
-        });
-    }
-    QuestionProvider.prototype.createQuestion = function (questionName, questionDate, uid, qlikes, qdislikes, answers) {
-        return this.QuestionListRef.push({
-            name: questionName,
-            date: questionDate,
-            userID: uid,
-            qlikes: qlikes,
-            qdislikes: qdislikes,
-            answers: answers
-        });
-    };
-    QuestionProvider.prototype.getQuestionList = function () {
-        return this.QuestionListRef;
-    };
-    QuestionProvider.prototype.getQuestionDetail = function (questionId) {
-        return this.QuestionListRef.child(questionId);
-    };
-    QuestionProvider.prototype.likeQuestion = function (questionId) {
-        var dbRef = this.QuestionListRef.child(questionId).child('qlikes');
-        dbRef.transaction(function (qlikes) {
-            return (qlikes || 0) + 1;
-        });
-    };
-    QuestionProvider.prototype.dislikeQuestion = function (questionId) {
-        var dbRef = this.QuestionListRef.child(questionId).child('qdislikes');
-        dbRef.transaction(function (qdislikes) {
-            return (qdislikes || 0) + 1;
-        });
-    };
-    QuestionProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
-    ], QuestionProvider);
-    return QuestionProvider;
-}());
-
-//# sourceMappingURL=question.js.map
-
-/***/ }),
-
 /***/ 310:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -556,9 +582,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(458);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(150);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_auth_auth__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_event_event__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_event_event__ = __webpack_require__(308);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_profile_profile__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_question_question__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_question_question__ = __webpack_require__(307);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2_auth__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angularfire2_database__ = __webpack_require__(475);
@@ -611,11 +637,12 @@ var AppModule = (function () {
                         { loadChildren: '../pages/event-detail/event-detail.module#EventDetailPageModule', name: 'EventDetailPage', segment: 'event-detail/:eventId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-list/event-list.module#EventListPageModule', name: 'EventListPage', segment: 'event-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/question-create/question-create.module#QuestionCreatePageModule', name: 'QuestionCreatePage', segment: 'question-create', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/question-detail/question-detail.module#QuestionDetailPageModule', name: 'QuestionDetailPage', segment: 'question-detail/:questionId', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/question-list/question-list.module#EventListPageModule', name: 'QuestionListPage', segment: 'question-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reset-password/reset-password.module#ResetPasswordPageModule', name: 'ResetPasswordPage', segment: 'reset-password', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/userprof/userprof.module#UserprofPageModule', name: 'UserprofPage', segment: 'userprof', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] }
                     ]
                 }),

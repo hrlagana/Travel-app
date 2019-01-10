@@ -22,7 +22,7 @@ export class ProfileProvider {
       if (user) {
         this.currentUser = user;
         this.userProfile = firebase.database().ref(`/userProfile/${user.uid}`);
-      }
+      }    
     });
   }
 

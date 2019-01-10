@@ -2,13 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuestionProvider } from "../../providers/question/question";
 
-import firebase from 'firebase';
-/**
- * Generated class for the EventDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+//import firebase from 'firebase';
+
 
 @IonicPage({
   segment: "question-detail/:questionId"
@@ -20,6 +15,7 @@ import firebase from 'firebase';
 export class QuestionDetailPage {
 
   public currentQuestion: any = {};
+  public currentUser: any = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, public QuestionProvider: QuestionProvider) {
   }
 
@@ -30,7 +26,6 @@ export class QuestionDetailPage {
         this.currentQuestion = QuestionSnapshot.val();
         this.currentQuestion.id = QuestionSnapshot.key;
       });
-
   }
 
   likeQuestion(questionId: string):void {
@@ -41,5 +36,8 @@ export class QuestionDetailPage {
     this.QuestionProvider.dislikeQuestion(this.currentQuestion.id);    
   }
 
+  showUserProfile():void {
+    this.navCtrl.push('UserprofPage');
+  }
 
 }

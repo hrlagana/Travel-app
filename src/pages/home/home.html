@@ -5,7 +5,7 @@
     </ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only *ngIf="userProfile?.firstName" (click)="goToProfile()">
+      <button ion-button icon-only (click)="goToProfile()">
         <ion-icon name="person">Profile</ion-icon>
       </button>
     </ion-buttons>
@@ -13,12 +13,16 @@
 </ion-header>
 
 <ion-content padding class="page-home">
-  <h3 col-6 *ngIf="userProfile?.firstName || userProfile?.lastName;else guest">
+  <h3 col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">
     Welcome, {{userProfile?.firstName}} {{userProfile?.lastName}}!
   </h3>
-  <ng-template #guest>
-    <h3> Welcome guest!</h3>
-  </ng-template>
+  <h3 col-6 *ngIf= "!userProfile?.displayName && !userProfile?.firstName">
+    <h3>Welcome guest!</h3>
+  </h3>
+  <h3 col-6 *ngIf= "userProfile?.displayName ">
+    <h3>Welcome {{userProfile?.displayName}}</h3>
+  </h3>
+  
   <button ion-button block color="primary" (click)="goToCreate()">
     Create a new Event
   </button>

@@ -8,11 +8,16 @@
 
     <ion-card>
         <ion-card-header>
-            {{currentQuestion?.name}} by User: {{currentQuestion?.userID}}
+            <h1>{{currentQuestion?.name}}</h1>
+            <p>by User:
+                <button ion-button (click)="showUserProfile()">
+                    <ion-icon>{{currentQuestion?.email}}</ion-icon>
+                </button>
+            </p>
         </ion-card-header>
         <ion-card-content>
-            <p>Date: {{currentQuestion?.date}}</p>
-            <h2>{{question?.name}}</h2>
+            <p>Date Posted: {{currentQuestion?.date}}</p>
+            <!--<h2>{{question?.name}}</h2> -->
 
             <button ion-button (click)="likeQuestion()" icon-left clear small>
                 <ion-icon name="thumbs-up"></ion-icon>
